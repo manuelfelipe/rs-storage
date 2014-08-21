@@ -43,6 +43,8 @@ if node['rs-storage']['restore']['lineage'].to_s.empty?
   rightscale_volume device_nickname do
     size size
     options volume_options
+    retries 10
+    retry_delay 5
     action [:create, :attach]
   end
 
